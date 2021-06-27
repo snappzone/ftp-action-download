@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 lftp $INPUT_HOST -u $INPUT_USER,$INPUT_PASSWORD -e "set ftp:ssl-force $INPUT_FORCESSL; set ssl:verify-certificate false;
-mirror $INPUT_OPTIONS --continue --only-newer --dereference -x ^\.git/$ $INPUT_LOCALDIR $INPUT_REMOTEDIR; 
+mirror $INPUT_OPTIONS --reverse --continue --only-newer --dereference -x ^\.git/$ $INPUT_LOCALDIR $INPUT_REMOTEDIR; 
 quit"
 
 # mv public_html/demo-5 public_html/demo-5_old; 
